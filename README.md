@@ -2,10 +2,9 @@
 
 This repository contains the source code for a fun, interactive Tic-Tac-Toe game. More importantly, it serves as the live demo application for a complete **Continuous Integration and Continuous Deployment (CI/CD)** pipeline built with **GitHub Actions** and **AWS S3**.
 
-The goal was to create a hands-on project that not only showcases frontend skills but also demonstrates a real-world automated deployment workflow.
+Many Organizations adopt DevOps Practices to innovate faster by automating and streamlining the software development and infrastructure management processes. Beyond cultural adoption, DevOps also suggests following certain best practices and Continuous Integration and Continuous Delivery (CI/CD) is among the important ones to start with. CI/CD practice reduces the time it takes to release new software updates by automating deployment activities. Many tools are available to implement this practice. Although AWS has a set of native tools to help achieve your CI/CD goals, it also offers flexibility and extensibility for integrating with numerous third party tools.
 
-![Tic-Tac-Toe Gameplay]
-*(Note: You can replace this with a screenshot of your actual application.)*
+The goal was to create a hands-on project that not only showcases frontend skills but also demonstrates a real-world automated deployment workflow.
 
 ## ✨ Features of the App
 
