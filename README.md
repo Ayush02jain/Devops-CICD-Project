@@ -1,4 +1,4 @@
-# CI/CD Tic-Tac-Toe
+# CI/CD Pipeline Testing 
 
 This repository contains the source code for a fun, interactive Tic-Tac-Toe game. More importantly, it serves as the live demo application for a complete **Continuous Integration and Continuous Deployment (CI/CD)** pipeline built with **GitHub Actions** and **AWS S3**.
 
