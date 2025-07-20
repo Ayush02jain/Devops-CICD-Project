@@ -1,0 +1,85 @@
+# CI/CD Tic-Tac-Toe
+
+This repository contains the source code for a fun, interactive Tic-Tac-Toe game. More importantly, it serves as the live demo application for a complete **Continuous Integration and Continuous Deployment (CI/CD)** pipeline built with **GitHub Actions** and **AWS S3**.
+
+The goal was to create a hands-on project that not only showcases frontend skills but also demonstrates a real-world automated deployment workflow.
+
+![Tic-Tac-Toe Gameplay]
+*(Note: You can replace this with a screenshot of your actual application.)*
+
+## ✨ Features of the App
+
+- **Play vs. Bot** -> A single-player experience against a simple AI opponent.
+- **Sleek UI** -> A clean and modern interface.
+- **Dark/Light Mode** -> A theme toggle that saves your preference in the browser.
+- **Win Animation** -> A fun confetti animation celebrates your victory!
+- **Fully Automated Deployment** -> Push to `main`, and the site is live.
+
+## 💻 Tech Stack
+
+- **Frontend** -> Vanilla HTML5, CSS3, and JavaScript (ES6).
+- **Deployment** -> GitHub Actions, AWS S3 (for static hosting), and AWS IAM (for secure credentials).
+
+## 🚀 Getting Started Locally
+
+To run this project on your local machine, follow these simple steps:
+
+1.  **Clone the repository:**
+    ```
+    git clone https://github.com/your-username/your-repo-name.git
+    ```
+
+2.  **Navigate to the project directory:**
+    ```
+    cd your-repo-name
+    ```
+
+3.  **Open the application:**
+    Simply open the `index.html` file in your favorite web browser.
+
+---
+
+## 🪄 Step-by-Step Setup Guide
+
+Here is the end-to-end guide for setting up the AWS infrastructure and the GitHub Actions workflow to enable automated deployments.
+
+### 1. 🛠 Create an IAM User in AWS
+- **What it is** -> This creates a dedicated user account in AWS with specific permissions. GitHub Actions will use this user to interact with your AWS account.
+- **Action** -> Navigate to the AWS IAM Console, create a new user, and grant it `AmazonS3FullAccess` to allow it to manage objects in your S3 bucket.
+
+### 2. ✅ Create an S3 Bucket
+- **What it is** -> An S3 bucket is a storage container where your website's files (`index.html`, `style.css`, etc.) will live.
+- **Action** -> Go to the AWS S3 Console and create a new bucket. Remember that the bucket name must be globally unique.
+
+### 3. 🌐 Enable Static Website Hosting
+- **What it is** -> This feature tells S3 to treat the files in your bucket as a public website.
+- **Action** -> In your bucket's **Properties** tab, enable "Static website hosting" and set `index.html` as the index document.
+
+### 4. 🔓 Allow Public Access
+- **What it is** -> By default, S3 buckets are private. This step makes your bucket's contents readable by the public.
+- **Action** -> In the **Permissions** tab, edit "Block public access" and uncheck all the boxes to allow public access.
+
+### 5. 👥 Set Object Ownership to Public
+- **What it is** -> This ensures that all new files uploaded to the bucket (by GitHub Actions, in this case) are accessible to visitors.
+- **Action** -> Under the **Permissions** tab, edit "Object Ownership" and select `ACLs enabled`.
+
+### 6. 🛡 Attach a Public Read Policy
+- **What it is** -> A bucket policy is a formal document that defines who can access your bucket and what they can do.
+- **Action** -> Use the AWS Policy Generator or manually add a policy that allows the `s3:GetObject` action for all principals (`*`) on your bucket's ARN. This is what lets browsers load your website's files.
+
+### 7. 🔑 Create Access Keys for the IAM User
+- **What it is** -> These are the secret credentials (an Access Key ID and a Secret Access Key) that act as a username and password for your IAM user.
+- **Action** -> Navigate to your created IAM user, go to the "Security credentials" tab, and create a new access key. **Save these securely**, as they will be needed for GitHub.
+
+### 8. ⚙️ Go to GitHub Actions
+- **What it is** -> This is the central hub within your GitHub repository for creating, managing, and monitoring automation workflows.
+- **Action** -> Click on the "Actions" tab in your repository and choose to set up a new workflow yourself.
+
+### 9. 📄 Create a Workflow File
+- **What it is** -> This YAML file (`main.yml`) is the blueprint for your CI/CD pipeline. It defines the trigger (e.g., a push to the `main` branch) and the sequence of jobs to run.
+- **Action** -> Create a file at `.github/workflows/main.yml` and paste in the provided workflow code. This code checks out your repository, configures your AWS credentials, and syncs your files to the S3 bucket.
+
+### 10. 🤫 Add Repository Secrets
+- **What it is** -> This is GitHub's secure vault for storing sensitive information like API keys and passwords.
+- **Action** -> Go to your repository's `Settings > Secrets and variables > Actions`. Add your `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_S3_BUCKET_NAME` as new repository secrets. The workflow file will securely access these values without exposing them in the code.
+
