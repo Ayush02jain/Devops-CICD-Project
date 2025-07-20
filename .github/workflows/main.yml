@@ -6,18 +6,19 @@ on:
 
 jobs:
   deploy:
-    name: Build, Test & Deploy Portfolio
+    name: Build, Test & Deploy Application
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    # === THIS IS THE CORRECTED STEP ===
     - name: Validate Files Exist
       run: |
-        test -f Devops CICD Project/index.html || (echo "index.html missing" && exit 1)
-        test -f Devops CICD Project/style.css || (echo "style.css missing" && exit 1)
-        test -f Devops CICD Project/script.js || (echo "script.js missing" && exit 1)
+        test -f "Devops CICD Project/index.html" || (echo "index.html missing" && exit 1)
+        test -f "Devops CICD Project/style.css" || (echo "style.css missing" && exit 1)
+        test -f "Devops CICD Project/script.js" || (echo "script.js missing" && exit 1)
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
@@ -26,6 +27,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: 'ap-south-1'
 
+    # === ALSO CORRECTED THIS STEP ===
     - name: Deploy to S3
       run: |
-        aws s3 sync Devops-CICD-Project s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+        aws s3 sync "Devops CICD Project/" s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
