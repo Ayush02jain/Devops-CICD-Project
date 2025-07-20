@@ -70,7 +70,6 @@ Here is the end-to-end guide for setting up the AWS infrastructure and the GitHu
 ### 6. 🔑 Create Access Keys for the IAM User
 - **What it is** -> These are the secret credentials (an Access Key ID and a Secret Access Key) that act as a username and password for your IAM user.
 - **Action** -> Navigate to your created IAM user, go to the "Security credentials" tab, and create a new access key. **Save these securely**, as they will be needed for GitHub.
-<img width="497" height="315" alt="image" src="https://github.com/user-attachments/assets/d79265bc-6275-4c7a-b7b8-384997f11813" />
 
 ### 7. ⚙️ Go to GitHub Actions
 - **What it is** -> This is the central hub within your GitHub repository for creating, managing, and monitoring automation workflows.
