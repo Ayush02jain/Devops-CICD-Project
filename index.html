@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Project with Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My CI/CD Project</h1>
+        <p>A simple frontend application with a Tic-Tac-Toe bot, deployed via GitHub Actions.</p>
+        <button id="theme-toggle">Toggle Dark/Light Mode</button>
+    </header>
+    
+    <main>
+        <div id="game-container">
+            <h2>Tic-Tac-Toe vs. Bot</h2>
+            <div id="game-board">
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+            </div>
+            <p id="status-text">Your turn (X)</p>
+            <button id="restart-button">Restart Game</button>
+        </div>
+    </main>
+
+    <!-- Win Animation Container -->
+    <div id="win-animation-container">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
