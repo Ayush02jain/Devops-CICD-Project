@@ -46,6 +46,8 @@ Here is the end-to-end guide for setting up the AWS infrastructure and the GitHu
 - **What it is** -> This creates a dedicated user account in AWS with specific permissions. GitHub Actions will use this user to interact with your AWS account.
 - **Action** -> Navigate to the AWS IAM Console, create a new user, and grant it `AmazonS3FullAccess` to allow it to manage objects in your S3 bucket.
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/40238261-fa93-4109-b057-ba41297ff11d" />
+
 ### 2. ✅ Create an S3 Bucket
 - **What it is** -> An S3 bucket is a storage container where your website's files (`index.html`, `style.css`, etc.) will live.
 - **Action** -> Go to the AWS S3 Console and create a new bucket. Remember that the bucket name must be globally unique.
